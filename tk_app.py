@@ -132,9 +132,10 @@ class Application(tk.Frame):
             self.file_name.set(file_name)
 
     def trans_mp4_to_mp3(self):
-        print(self.file_label["text"])
-        # import subprocess
-        # subprocess.run(["ffmpeg", "-i", "sample.mp4", "-q:a", "0", "-map", "a", "output.mp3"])
+        file = self.file_label["text"]
+        mp3_file = file.replace("/movie_data/","/music_data/").replace(".webm",".mp3").replace(".mp4",".mp3")
+        import subprocess
+        subprocess.run(["ffmpeg", "-i", file, "-q:a", "0", "-map", "a", mp3_file])
 
 # def load_video():
     

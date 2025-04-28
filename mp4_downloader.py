@@ -19,15 +19,17 @@ class networkmovie:
         # 'retries': 10, 'verbose': True }
 
         ydl_opts = {
-            'format':'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]',
+            'format':'bestvideo[ext=mp4]',
             'outtmpl': self.music_filename + '.%(ext)s',
-            'noprogress': True,
         }
+
+        import subprocess
+        subprocess.run(["yt-dlp", self.link_info])
 
         # ydl = youtube_dl.YoutubeDL(ydl_opts)
         # info_dict = ydl.extract_info(self.link_info, download=True)
-        with yt_dlp.YoutubeDL(ydl_opts) as ydl:
-            ydl.download([self.link_info])
+        # with yt_dlp.YoutubeDL(ydl_opts) as ydl:
+        #     ydl.download([self.link_info])
             
 if __name__ == '__main__':
     # link = sys.argv[1]
