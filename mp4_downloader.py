@@ -1,10 +1,8 @@
-import youtube_dl
-import yt_dlp
+
 import datetime
 import sys
 import os.path
 import glob
-import ffmpeg
 
 class networkmovie:
     def __init__(self, link_info, name='AUTO'):

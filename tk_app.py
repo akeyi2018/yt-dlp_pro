@@ -111,6 +111,9 @@ class Application(tk.Frame):
 
     def down_load_mp3(self):
         url = self.entry_url.get()
+        # urlの後ろの部分を切る
+        url = url.split('&list=')[0]
+
         title = self.entry_title.get()
         if len(url) > 1 :
             if len(title) > 1:
@@ -119,6 +122,7 @@ class Application(tk.Frame):
             else:
                 dl = networkmusic(url, 'mp_')
                 dl.download()
+            self.entry_url.delete(0, tk.END)
         else:
             print('URL is not set.')
 

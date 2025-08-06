@@ -1,4 +1,3 @@
-import youtube_dl
 import datetime
 import os.path
 import yt_dlp
