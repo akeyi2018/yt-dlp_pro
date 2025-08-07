@@ -11,18 +11,12 @@ class Application(tk.Frame):
 
     def __init__(self, master=None):
         super().__init__(master)
-
         self.master.title("Downloader")       # ウィンドウタイトル
         self.master.geometry("1200x500") # ウィンドウサイズ(幅x高さ)
-
         self.font = ("MSゴシック", "14")
-
-
         self.create_download_gui()
-       
 
     def create_download_gui(self):
-
         # Download frame
         self.download_frame = tk.LabelFrame(root, text="Download", padx=10, pady=10)
         self.download_frame.grid(column=0, row=0, padx=10)
@@ -138,87 +132,6 @@ class Application(tk.Frame):
         mp3_file = file.replace("/movie_data/","/music_data/").replace(".webm",".mp3").replace(".mp4",".mp3")
         import subprocess
         subprocess.run(["ffmpeg", "-i", file, "-q:a", "0", "-map", "a", mp3_file])
-
-# def load_video():
-    
-#     """ loads the video """
-#     file_path = filedialog.askopenfilename()
-#     if file_path:
-#         os.startfile(file_path)
-#     # global text_list
-#     # text_list = 'playing:' + os.path.basename(file_path)
-#     # move_text()
-#     # move_text('playing:' + os.path.basename(file_path))
-#     status_txt.set('playing:' + os.path.basename(file_path))
-
-# def start_winamp():
-#     subprocess.Popen(rf"C:\Program Files (x86)\Winamp\winamp.exe")
-
-# def move_text():
-#     global text_x, text_y, text_list
-#     status_t.place_forget()
-#     status_t.place(x=text_x,y=text_y)
-#     text_x -= 50
-#     n = len(text_list)-1 #リストの要素数を取得
-#     if text_x <=-3000: #画面左端まで文字が到達した場合
-#         text_x = 0 #画面右に戻す
-#         x += 1 #取り込むリストの要素をひとつずらす
-#         status_txt.set(text_list) #StringVarに反映
-#         if x == n: #xが要素数+1に達した場合
-#             x=0 #最初にリセット
-#             status_txt.set(text_list[len(text_list)-1]) #要素数の最大値の要素をStringVarに反映
-#         root.after(10,move_text) #100ミリ秒ごとにスクロール
-
-
-# # 
-# # Tkクラス生成
-# root = tk.Tk()
-# # 画面サイズ
-# root.geometry('1200x500')
-# # 画面タイトル
-# root.title('downloder player')
-
-# status_txt = tk.StringVar()
-# status_txt.set('status')
-# # 状態
-# # status_t = tk.Label(root, textvariable=status_txt, font=("MSゴシック", "14"))
-# # status_t.place(x=10, y =10)
-
-# # 各種ウィジェットの作成
-# button = tk.Button(root, text="download to Moive", command=down_load, font=("MSゴシック", "14", "bold"), fg='red')
-# button2 = tk.Button(root, text="download to MP3", command=down_load_mp3, font=("MSゴシック", "14", "bold"), fg='green')
-# # 各種ウィジェットの作成
-# button3 = tk.Button(root, text="open", command=load_video, font=("MSゴシック", "14", "bold"), fg="blue")
-
-# button4 = tk.Button(root, text="Open_Winamp", command=start_winamp, font=("MSゴシック", "14", "bold"))
-
-
-# button2.place(x= 350, y=120)
-# button3.place(x= 100, y=180)
-# button4.place(x= 350, y= 180)
-# # button3.bind('event', load_video)
-
-# # button3.pack()
-
-# # 流れる座標
-# text_x = 0
-# text_y = 80
-# text_list = 'status'
-
-# # メインフレームの作成と設置
-# frame_label = tk.Frame(root, bg='#000000')
-# # 状態
-# status_t = tk.Label(frame_label, textvariable=status_txt, bg="#000000",fg="#FFFFFF",font=("MSゴシック", "14"))
-# # status_t.place(x=10, y =10)
-# frame_label.place(x=140, y=230, width=800, height= 200)
-# # frame_label.pack()
-# status_t.place(x=0, y=80)
-# # status_t.pack()
-
-
-# # 表示
-# root.mainloop()
-
 
 if __name__ == "__main__":
     root = tk.Tk()
