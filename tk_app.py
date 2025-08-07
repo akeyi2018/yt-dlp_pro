@@ -15,9 +15,7 @@ class Application(tk.Frame):
         self.master.title("Downloader")       # ウィンドウタイトル
         self.master.geometry("1200x500") # ウィンドウサイズ(幅x高さ)
 
-
         self.font = ("MSゴシック", "14")
-
 
 
         self.create_download_gui()
